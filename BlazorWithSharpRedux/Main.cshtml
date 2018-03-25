@@ -1,0 +1,14 @@
+﻿@inject ReduxDispatcher<AppState, Reducer> dispatcher
+
+<div class='container-fluid'>
+    <div class='row'>
+        <h2>Counter SharpRedux sample</h2>
+        <div class='col-sm-9'>
+            <Counter InitialState=dispatcher.InitialState />
+        </div>
+    </div>
+</div>
+
+@functions {
+
+}

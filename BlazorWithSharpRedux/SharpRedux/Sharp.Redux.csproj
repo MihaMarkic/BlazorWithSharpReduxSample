@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.2;netstandard2.0;net45</TargetFrameworks>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>2.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageId>Righthand.SharpRedux</PackageId>
+    <Authors>Miha Markic</Authors>
+    <Copyright>(c) 2017 Miha Markic</Copyright>
+    <Description>Redux implemenation for .net.</Description>
+    <PackageProjectUrl>https://github.com/MihaMarkic/sharp-redux</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/MihaMarkic/sharp-redux/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageTags>c# redux</PackageTags>
+    <IncludeSymbols>true</IncludeSymbols>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Version>1.0.0-alpha1</Version>
+    <files>
+      <file src="bin\Release\Sharp.Redux.xml" target="lib/netstandard1.2" />
+      <file src="bin\Release\Sharp.Redux.xml" target="lib/netstandard2.0" />
+      <file src="bin\Release\Sharp.Redux.xml" target="lib/net45" />
+    </files>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\Sharp.Redux.xml</DocumentationFile>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+  </PropertyGroup>
+</Project>
