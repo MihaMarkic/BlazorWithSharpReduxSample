@@ -23,6 +23,7 @@ namespace BlazorWithSharpRedux
             {
                 configure.AddSingleton(dispatcher);
             });
+            dispatcher.Start();
 
             new BrowserRenderer(serviceProvider).AddComponent<Main>("app");
         }

@@ -4,11 +4,21 @@
     <div class='row'>
         <h2>Counter SharpRedux sample</h2>
         <div class='col-sm-9'>
-            <Counter InitialState=dispatcher.InitialState />
+            <Counter Current=Current />
         </div>
     </div>
 </div>
 
 @functions {
+    AppState Current;
 
+    protected override void OnInit()
+    {
+        Current = dispatcher.InitialState;
+        dispatcher.StateChanged += (s, e) =>
+        {
+            Current = e.State;
+            this.StateHasChanged();
+        };
+    }
 }

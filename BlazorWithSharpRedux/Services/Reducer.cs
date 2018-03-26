@@ -1,19 +1,21 @@
 ﻿using Sharp.Redux;
 using BlazorWithSharpRedux.Actions;
 using BlazorWithSharpRedux.State;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace BlazorWithSharpRedux.Services
 {
     public class Reducer : IReduxReducer<AppState>
     {
-        public AppState Reduce(AppState state, ReduxAction action)
+        public Task<AppState> ReduceAsync(AppState state, ReduxAction action, CancellationToken ct)
         {
             switch (action)
             {
                 case IncrementCounterAction incrementCounter:
-                    return state.Clone(counter: state.Counter + 1);
+                    return Task.FromResult(state.Clone(counter: state.Counter + 1));
                 default:
-                    return state;
+                    return Task.FromResult(state);
             }
         }
     }

@@ -7,18 +7,10 @@
 <button @onclick(IncrementCount)>Click me</button>
 
 @functions {
-    public AppState InitialState { get; set; }
-    AppState Current;
+    public AppState Current { get; set; }
+
     void IncrementCount()
     {
         dispatcher.Dispatch(new IncrementCounterAction());
-    }
-    protected override void OnInit()
-    {
-        Current = InitialState;
-        dispatcher.StateChanged += (s, e) =>
-        {
-            Current = e.State;
-        };
     }
 }
