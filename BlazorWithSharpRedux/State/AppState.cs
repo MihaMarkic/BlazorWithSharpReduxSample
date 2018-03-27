@@ -4,12 +4,14 @@ namespace BlazorWithSharpRedux.State
 {
     public readonly struct AppState
     {
-        public int Counter { get; }
-        public AppState(int counter)
+        public CounterState Counter { get; }
+
+        public AppState(CounterState counter)
         {
             Counter = counter;
         }
-        public AppState Clone(Param<int>? counter = null)
+
+        public AppState Clone(Param<CounterState>? counter = null)
         {
             return new AppState(counter.HasValue ? counter.Value.Value : Counter);
         }

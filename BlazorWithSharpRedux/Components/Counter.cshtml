@@ -2,12 +2,12 @@
 
 <h1>Counter</h1>
 
-<p>Current count: @Current.Counter</p>
+<p>Current count: @Current.Value</p>
 
 <button @onclick(IncrementCount)>Click me</button>
 
 @functions {
-    public AppState Current { get; set; }
+    public CounterState Current { get; set; }
 
     void IncrementCount()
     {
