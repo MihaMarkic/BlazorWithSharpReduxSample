@@ -4,7 +4,19 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RunCommand>dotnet</RunCommand>
     <RunArguments>blazor serve</RunArguments>
+    <LangVersion>7.2</LangVersion>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="SharpRedux\**" />
+    <Content Remove="SharpRedux\**" />
+    <EmbeddedResource Remove="SharpRedux\**" />
+    <None Remove="SharpRedux\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.0-preview2-30230" PrivateAssets="all" />
@@ -17,11 +29,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="SharpRedux\" />
+    <BlazorGenerate Remove="Main.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <BlazorGenerate Remove="Main.cshtml" />
+    <BlazorGenerate Remove="SharpRedux\**" />
   </ItemGroup>
 
 </Project>

@@ -13,7 +13,6 @@ namespace BlazorWithSharpRedux
         static void Main(string[] args)
         {
             var appState = new AppState(0);
-            AppState.Current = appState;
             var dispatcher = new ReduxDispatcher<AppState, Reducer>(
                 initialState: appState,
                 reducer: new Reducer(),

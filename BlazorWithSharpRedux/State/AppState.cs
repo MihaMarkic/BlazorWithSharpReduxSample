@@ -2,9 +2,8 @@
 
 namespace BlazorWithSharpRedux.State
 {
-    public class AppState
+    public readonly struct AppState
     {
-        public  static AppState Current { get; set; }
         public int Counter { get; }
         public AppState(int counter)
         {
