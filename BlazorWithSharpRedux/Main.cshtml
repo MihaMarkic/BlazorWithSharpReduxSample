@@ -4,21 +4,37 @@
     <div class='row'>
         <h2>Counter SharpRedux sample</h2>
         <div class='col-sm-12'>
-            <Counter Current=Current.Counter />
+            <Counter State=State.Counter />
         </div>
     </div>
+    <div class='row'>
+        <h2>FetchData SharpRedux sample</h2>
+        <div class='col-sm-12'>
+            <FetchData State=State.FetchData />
+        </div>
+    </div>
+    <h3>Redux actions</h3>
+    <ul>
+        @foreach(var item in log)
+        {
+            <li>@item</li>
+        }
+    </ul>
 </div>
 
 @functions {
-    AppState Current;
+AppState State;
+readonly List<string> log = new List<string>();
+void Log(string message) => log.Add($"{DateTime.UtcNow.ToString("O")} - {message}");
 
-    protected override void OnInit()
+protected override void OnInit()
+{
+    State = dispatcher.InitialState;
+    dispatcher.StateChanged += (s, e) =>
     {
-        Current = dispatcher.InitialState;
-        dispatcher.StateChanged += (s, e) =>
-        {
-            Current = e.State;
-            this.StateHasChanged();
-        };
-    }
+        Log($"Action: {e.Action.GetType().Name}");
+        State = e.State;
+        this.StateHasChanged();
+    };
+}
 }

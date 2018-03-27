@@ -4,7 +4,7 @@ using BlazorWithSharpRedux.Actions;
 using BlazorWithSharpRedux.State;
 using Sharp.Redux;
 
-namespace BlazorWithSharpRedux.Services
+namespace BlazorWithSharpRedux.Reducers
 {
     public class CounterReducer : IReduxReducer<CounterState>
     {

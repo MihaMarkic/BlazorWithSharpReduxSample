@@ -1,13 +1,17 @@
 ﻿@page "/fetchdata"
-@inject HttpClient Http
+@inject Communicator Communicator
 
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from the server.</p>
 
-@if (forecasts == null)
+@if (State.IsLoading)
 {
     <p><em>Loading...</em></p>
+}
+else if (State.Error != null)
+{
+    <p><em>Error: @State.Error</em></p>
 }
 else
 {
@@ -21,8 +25,8 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var forecast in forecasts)
-            {
+            @foreach (var forecast in State.Forecasts)
+    {
                 <tr>
                     <td>@forecast.Date.ToShortDateString()</td>
                     <td>@forecast.TemperatureC</td>
@@ -33,20 +37,21 @@ else
         </tbody>
     </table>
 }
+@if (!State.IsLoading)
+{
+    <button @onclick(() => RefreshAsync())>Reload</button>
+
+}
 
 @functions {
-    WeatherForecast[] forecasts;
+    public FetchDataState State { get; set; }
 
-    protected override async Task OnInitAsync()
+    protected override Task OnInitAsync()
     {
-        forecasts = await Http.GetJsonAsync<WeatherForecast[]>("/sample-data/weather.json");
+        return RefreshAsync();
     }
-
-    class WeatherForecast
+    public Task RefreshAsync()
     {
-        public DateTime Date { get; set; }
-        public int TemperatureC { get; set; }
-        public int TemperatureF { get; set; }
-        public string Summary { get; set; }
+        return Communicator.FetchWeatherForecastAsync();
     }
 }

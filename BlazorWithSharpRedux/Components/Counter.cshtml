@@ -1,16 +1,16 @@
-﻿@inject ReduxDispatcher<AppState, Reducer> dispatcher
+﻿@inject ReduxDispatcher<AppState, Reducer> Dispatcher
 
 <h1>Counter</h1>
 
-<p>Current count: @Current.Value</p>
+<p>Current count: @State.Value</p>
 
 <button @onclick(IncrementCount)>Click me</button>
 
 @functions {
-    public CounterState Current { get; set; }
+    public CounterState State { get; set; }
 
     void IncrementCount()
     {
-        dispatcher.Dispatch(new IncrementCounterAction());
+        Dispatcher.Dispatch(new IncrementCounterAction());
     }
 }
