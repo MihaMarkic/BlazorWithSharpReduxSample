@@ -10,4 +10,8 @@ Current work is very early experimentation.
 
 Clone or get sources, and run it as Blazor project (see [getting started instructions](https://blogs.msdn.microsoft.com/webdev/2018/03/22/get-started-building-net-web-apps-in-the-browser-with-blazor/)).
 
-Current sample is as simple as it gets - incremental counter, similar to Blazor's sample.
+Currently there are two sample components running with redux:
+* Counter - incremental counter, similar to Blazor's sample.
+* FetchData - similar to Blazor's sample, except it has a "Reload" button added
+
+Below sample DOM the redux actions are listed.
