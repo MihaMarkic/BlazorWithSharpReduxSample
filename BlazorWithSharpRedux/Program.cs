@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Blazor.Browser.Rendering;
 using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Sharp.Redux;
-using System;
-using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace BlazorWithSharpRedux
@@ -24,13 +22,12 @@ namespace BlazorWithSharpRedux
                 reducer: new Reducer(),
                 notificationScheduler: TaskScheduler.Current);
 
-            var communicator = new Communicator(dispatcher);
             var serviceProvider = new BrowserServiceProvider(configure =>
             {
-                configure.AddSingleton(dispatcher);
-                configure.AddSingleton(communicator);
+                configure.AddSingleton<IReduxDispatcher>(dispatcher);
+                configure.AddSingleton<IReduxDispatcher<AppState>>(dispatcher);
+                configure.AddSingleton<Communicator>();
             });
-            communicator.Http = serviceProvider.GetService<HttpClient>();
             dispatcher.Start();
 
             new BrowserRenderer(serviceProvider).AddComponent<Main>("app");
