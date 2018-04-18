@@ -39,7 +39,7 @@ else
 }
 @if (!State.IsLoading)
 {
-    <button @onclick(() => RefreshAsync())>Reload</button>
+    <button onclick="@(e => RefreshAsync())">Reload</button>
 
 }
 
