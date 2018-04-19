@@ -2,7 +2,7 @@
 
 namespace BlazorWithSharpRedux.Actions
 {
-    public class IncrementCounterAction: ReduxAction
+    public class IncrementCounterAction: BlazorReduxAction
     {
     }
 }

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Blazor.Browser.Rendering;
 using Microsoft.AspNetCore.Blazor.Browser.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Sharp.Redux;
+using Sharp.Redux.Actions;
 using System.Threading.Tasks;
 
 namespace BlazorWithSharpRedux
@@ -21,6 +22,18 @@ namespace BlazorWithSharpRedux
                 initialState: appState,
                 reducer: new Reducer(),
                 notificationScheduler: TaskScheduler.Current);
+            bool areDevToolsAvailable = DevTools.AreAvailable();
+            if (areDevToolsAvailable)
+            {
+                DevTools.Init(appState);
+                dispatcher.StateChanged += (s, e) =>
+                {
+                    if (!(e.Action is InitAction))
+                    {
+                        DevTools.Send(e.Action, e.State);
+                    }
+                };
+            }
 
             var serviceProvider = new BrowserServiceProvider(configure =>
             {

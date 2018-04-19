@@ -3,7 +3,7 @@ using Sharp.Redux;
 
 namespace BlazorWithSharpRedux.Actions
 {
-    public class WeatherForecastFetchSuccessAction: ReduxAction
+    public class WeatherForecastFetchSuccessAction: BlazorReduxAction
     {
         public WeatherForecast[] Items { get; }
 

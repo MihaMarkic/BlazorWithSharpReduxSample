@@ -3,7 +3,7 @@ using Righthand.Immutable;
 
 namespace BlazorWithSharpRedux.Actions
 {
-    public class WeatherForecastFetchFailureAction: ReduxAction
+    public class WeatherForecastFetchFailureAction: BlazorReduxAction
     {
         public string Error { get; }
 

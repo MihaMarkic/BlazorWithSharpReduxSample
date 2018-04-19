@@ -2,7 +2,7 @@
 
 namespace BlazorWithSharpRedux.Actions
 {
-    public class WeatherForecastFetchStartAction : ReduxAction
+    public class WeatherForecastFetchStartAction : BlazorReduxAction
     {
     }
 }
