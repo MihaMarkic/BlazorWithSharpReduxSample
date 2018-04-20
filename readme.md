@@ -6,6 +6,8 @@ This project aims to integrate [sharp-redux](https://github.com/MihaMarkic/sharp
 
 Current work is very early experimentation.
 
+Added integration with [Redux DevTools extension](https://github.com/zalmoxisus/redux-devtools-extension) using [Righthand.BlazorReduxDevToolsExtension](https://github.com/MihaMarkic/BlazorReduxDevToolsExtension). Time travel is not supported at this time.
+
 ## Run the sample
 
 Clone or get sources, and run it as Blazor project (see [getting started instructions](https://blogs.msdn.microsoft.com/webdev/2018/03/22/get-started-building-net-web-apps-in-the-browser-with-blazor/)).
