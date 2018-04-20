@@ -20,8 +20,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.0-preview2-final" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.2.0" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Browser" Version="0.2.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="0.2.1" />
+    <PackageReference Include="Righthand.BlazorReduxDevToolsExtension" Version="1.0.0-preview1" />
     <PackageReference Include="Righthand.Immutable" Version="1.0.2" />
     <PackageReference Include="Righthand.SharpRedux" Version="1.0.3" />
     <PackageReference Include="System.Threading.Tasks.Dataflow" Version="4.9.0-preview2-26406-04" />
